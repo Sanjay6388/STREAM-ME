@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="./global.css" />
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+</head>
+
+<body>
+  <nav>
+    <div class="container">
+      <h2 class="log">STREAM-ME</h2>
+      <div class="search-bar">
+        <span class="material-icons-sharp">
+          search
+        </span>
+        <input type="search" placeholder="search">
+      </div>
+      <div class="create">
+        <!----
+                  <label class=" btn btn-primary" for="create-post">Login</label>
+              -->
+        <div class="profile-photo">
+          <img src="/main/JOIN/profile-1.jpg">
+        </div>
+        <div class="handle">
+          <h4>Adam
+
+          </h4>
+        </div>
+
+      </div>
+    </div>
+
+  </nav>
+  <div class="desktop-1">
+    <div class="frame-parent">
+      <div class="netflix-premium-wrapper">
+        <div class="netflix-premium">Netflix Premium</div>
+      </div>
+      <div class="group-id-parent">
+        <div class="group-id">Group ID</div>
+        <div class="div">12</div>
+        <div class="your-share">Your Share</div>
+        <div class="rs-163">Rs. 163</div>
+        <div class="div1">1/4</div>
+        <div class="free-slots">Free Slots</div>
+      </div>
+      <div class="platform-name-parent">
+        <b class="platform-name">Platform Name</b>
+        <b class="netflix">Netflix</b>
+        <b class="rs-1631">Rs. 163</b>
+        <b class="apr-2023">24 Apr 2023</b>
+        <b class="b">4</b>
+        <b class="days">28 Days</b>
+        <b class="slot">Slot</b>
+        <b class="validity">Validity</b>
+        <b class="group-created-on">Group Created On</b>
+        <b class="price">Price</b>
+      </div>
+      <div class="full-refund-per-terms-if-login-wrapper">
+        <div class="full-refund-per">
+          Full refund per terms if login credentails do not work.
+        </div>
+      </div>
+      <div class="netflix-is-a">
+        Netflix is a subscription-based streaming service that allows its
+        subscribers to watch TV shows and movies without commercials on an
+        internet-connected devices
+      </div>
+    </div>
+    <div class="about-admin-parent">
+      <button class="about-admin">About Admin</button>
+      <img class="frame-child" alt="" src="/main/JOIN/admin_vector-removebg-preview.png" />
+
+      <div class="admin">admin</div>
+      <div class="last-active-parent">
+        <div class="last-active">Last Active</div>
+        <div class="hours-ago">hours ago</div>
+      </div>
+      <div class="member-since-parent">
+        <div class="member-since">Member Since</div>
+        <div class="hours-ago">21 April 23</div>
+      </div>
+      <div class="reliability-parent">
+        <div class="reliability">Reliability</div>
+        <div class="hours-ago">83%</div>
+      </div>
+      <div class="email-verification">Email Verification</div>
+      <div class="mobile-verification">Mobile Verification</div>
+      <img class="vector-icon" alt="" src="./public/vector.svg" />
+
+      <img class="vector-icon1" alt="" src="./public/vector1.svg" />
+    </div>
+    <div class="click-to-join-parent">
+      <button class="pay" id="rzp-button1">Pay Now Rs.163</button>
+
+    </div>
+    <div class="how-it-works-wrapper">
+      <div class="how-it-works">How it works?</div>
+    </div>
+  </div>
+  <button id="rzp-button1">Pay</button>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+      "key": "rzp_test_w96BTiKh56fwgx", // Enter the Key ID generated from the Dashboard
+      "amount": "16300", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise.
+      "currency": "INR",
+      "name": "STREAM-ME",
+
+      "handler": function (response) {
+        console.log(response);
+      },
+      "prefill": {
+        "name": "admin",
+        "email": "admin@example.com",
+        "contact": "9000090000"
+      },
+      "notes": {
+        "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+        "color": "#3399cc"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function (response) {
+      alert(response.error.code);
+      alert(response.error.description);
+      alert(response.error.source);
+      alert(response.error.step);
+      alert(response.error.reason);
+      alert(response.error.metadata.order_id);
+      alert(response.error.metadata.payment_id);
+    });
+    document.getElementById('rzp-button1').onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    }
+  </script>
+</body>
+
+</html>
