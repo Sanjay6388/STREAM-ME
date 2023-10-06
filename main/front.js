@@ -3,7 +3,7 @@ if (isLogin === "true") {
     if (window.location.pathname !== "/main/front.html")
         window.location.assign("/main/front.html")
 } else {
-    window.location.assign("/login/index.html")
+    window.location.assign("/index.html")
 }
 //JOIN
 
